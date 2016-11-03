@@ -1,2 +1,1 @@
-# react-app
-Contact List Application on React.js
+# Todo Application on React.js
