@@ -42,15 +42,38 @@ body {
 		line-height: 1em;
 		border-radius: 3px;
 	}
+
+	@media (max-width: 600px) {
+		.header-logo {font-size: 25px;}
+		.header .btn {
+			font-size: 13px;
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+	}
+	@media (max-width: 400px) {
+		.header-logo {
+			font-size: 18px;
+			padding-top: 7px;
+			padding-left: 0;
+		}
+		.header .btn {
+			font-size: 10px;
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+	}
 /* end header */
 
-/* taskInput */
+/* inputs */
+	.searchInput,
 	.taskInput {
 		margin-top: 10px;
 		width: 100%;
 		height: 50px;
 		overflow: hidden
 	}
+	.searchInput input,
 	.taskInput input  {
 		margin: 0;
 		border: 0;
@@ -60,8 +83,18 @@ body {
 		display: block;
 		float: left;
 		font-size: 18px;
+		background-color: rgba(0,0,0, .3);
+		color: #fff;
+	}
+	.searchInput input {width: 100%;}
+	.searchInput input:focus,
+	.taskInput input:focus {
+		border-bottom: none !important;
+		background-color: rgba(0,0,0, 0);
+		color: #000;
 	}
 
+	.searchInput-searchBtn,
 	.taskInput-addBtn {
 		width: 50px;
 		height: 50px;
@@ -70,20 +103,27 @@ body {
 		padding: 0;
 		border-radius: 0;
 	}
+	.searchInput-searchBtn i,
 	.taskInput-addBtn i {
 		font-size: 40px;
 		line-height: 1.2em;
 	}
-/* end taskInput */
+/* end inputs */
 
 /* task */
 	.task label {
 		color: #333;
-		font-size: 18px;
+		font-size: 16px;
 	}
 	
 	.task :checked + label {
 		color: #aaa;
 		text-decoration: line-through;
+	}
+
+	@media (max-width: 600px) {
+		.task label {
+			font-size: 13px;
+		}
 	}
 /* end task */

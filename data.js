@@ -3,15 +3,15 @@
 let data = {
 	tasks: [
 		{
-			done: true,
+			status: 'done',
 			text: 'make request'
 		},
 		{
-			done: false,
+			status: 'active',
 			text: 'commit changes'
 		},
 		{
-			done: false,
+			status: 'done',
 			text: 'save users'
 		}
 	]
