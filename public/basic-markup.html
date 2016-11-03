@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<title>Todo App</title>
+
+	<link rel="stylesheet" href="/node_modules/material-design-icons/iconfont/material-icons.css">
+	<link rel="stylesheet" href="/node_modules/materialize-css/dist/css/materialize.min.css">
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="header grey darken-4 white-text clearfix">
+	<a href="/#home" class="header-logo left waves-effect waves-light">todoReact.</a>
+
+	<div class="right">
+		<button class="waves-effect waves-light btn deep-orange darken-1">clear done</button>
+		<button class="waves-effect waves-light btn right space-left-10">make all done</button>
+	</div>
+</header>
+
+<div class="row">
+	<div class="col s10 center">
+		<ul class="tabs">
+			<li class="tab col s3"><a class="active" href="#all-tasks"> All (2) </a></li>
+			<li class="tab col s3"><a href="#active-tasks"> Active (1) </a></li>
+			<li class="tab col s3"><a href="#done-tasks"> Done (1) </a></li>
+		</ul>
+	</div>
+
+	<div class="col s10 center">
+		<div class="taskInput input-field z-depth-1">
+			<input placeholder="New task..." id="input-task" type="text">
+			<button class="taskInput-addBtn btn waves-effect waves-light">
+				<i class="material-icons">add</i>
+			</button>
+		</div>
+	</div>
+
+	<div class="col s8 center tabs-content">
+		<div id="all-tasks" class="col s12">
+			<div class="card task clearfix">
+				<div class="card-content left clearfix">
+					<input type="checkbox" id="taskCheckbox-objId1" class="filled-in"/>
+					<label for="taskCheckbox-objId1"> Make dishes </label>
+				</div>
+			</div>
+
+			<div class="card task task--done clearfix">
+				<div class="card-content left clearfix">
+					<input type="checkbox" id="taskCheckbox-objId2" class="filled-in" checked/>
+					<label for="taskCheckbox-objId2"> Commit changes </label>
+				</div>
+			</div>
+		</div>
+
+		<div id="active-tasks" class="col s12">
+			<div class="card task clearfix">
+				<div class="card-content left clearfix">
+					<input type="checkbox" id="taskCheckbox-objId3" class="filled-in"/>
+					<label for="taskCheckbox-objId3"> Make dishes </label>
+				</div>
+			</div>
+		</div>
+
+		<div id="done-tasks" class="col s12">
+			<div class="card task task--done clearfix">
+				<div class="card-content left clearfix">
+					<input type="checkbox" id="taskCheckbox-objId4" class="filled-in" checked/>
+					<label for="taskCheckbox-objId4"> Commit changes </label>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="/node_modules/jquery/dist/jquery.min.js"></script>
+<script src="/node_modules/underscore/underscore-min.js"></script>
+<script src="/node_modules/backbone/backbone-min.js"></script>
+<script src="/node_modules/materialize-css/dist/js/materialize.min.js"></script>
+
+<script src="js/scripts.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
