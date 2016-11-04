@@ -1,5 +1,3 @@
-'use strict';
-
 let data = {
 	tasks: [
 		{
@@ -32,4 +30,20 @@ let data = {
 	]
 }
 
-module.exports = data;
+let Task = React.createClass({
+	render() {
+		return <div className="card task clearfix">
+			<div className="card-content left clearfix">
+				<input type="checkbox" id="taskCheckbox-objId2" className="filled-in" defaultChecked/>
+				<label htmlFor="taskCheckbox-objId2"> {this.props.text} </label>
+			</div>
+		</div>
+	}
+});
+
+ReactDOM.render(
+	<div>
+		<Task text={data.tasks[0].text} />
+	</div>,
+	document.getElementById('todo-app')
+);

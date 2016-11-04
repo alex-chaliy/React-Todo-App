@@ -3,7 +3,7 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="UTF-8">
-	<title>Todo App</title>
+	<title>basic markup</title>
 
 	<link rel="stylesheet" href="/node_modules/material-design-icons/iconfont/material-icons.css">
 	<link rel="stylesheet" href="/node_modules/materialize-css/dist/css/materialize.min.css">
@@ -48,9 +48,33 @@
 					<input type="checkbox" id="taskCheckbox-objId1" class="filled-in"/>
 					<label for="taskCheckbox-objId1"> Make dishes </label>
 				</div>
+
+				 <ul class="collapsible clearfix z-depth-0" data-collapsible="expandable">
+					<li >
+						<div class="collapsible-header"><i class="material-icons">image</i>
+							Event Loop Model</div>
+						<div class="collapsible-body">
+							<img alt="" src="uploads/img/img-1.png">
+						</div>
+					</li>
+					<li>
+						<div class="collapsible-header"><i class="material-icons">image</i>
+							React Arhitecture</div>
+						<div class="collapsible-body">
+							<img alt="" src="uploads/img/img-2.png">
+						</div>
+					</li>
+					<li>
+						<div class="collapsible-header"><i class="material-icons">image</i>
+							Yosemite bg</div>
+						<div class="collapsible-body">
+							<img alt="" src="uploads/img/img-3.png">
+						</div>
+					</li>
+				 </ul>
 			</div>
 
-			<div class="card task task--done clearfix">
+			<div class="card task clearfix">
 				<div class="card-content left clearfix">
 					<input type="checkbox" id="taskCheckbox-objId2" class="filled-in" checked/>
 					<label for="taskCheckbox-objId2"> Commit changes </label>
@@ -79,8 +103,6 @@
 </div>
 
 <script src="/node_modules/jquery/dist/jquery.min.js"></script>
-<script src="/node_modules/underscore/underscore-min.js"></script>
-<script src="/node_modules/backbone/backbone-min.js"></script>
 <script src="/node_modules/materialize-css/dist/js/materialize.min.js"></script>
 
 <script src="js/scripts.js"></script>
