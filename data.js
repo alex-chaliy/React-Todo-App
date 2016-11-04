@@ -3,6 +3,7 @@
 let data = {
 	tasks: [
 		{
+			_id: 'd46',
 			status: 'done',
 			text: 'make request',
 			imgs: [
@@ -21,11 +22,13 @@ let data = {
 			]
 		},
 		{
+			_id: 'd47',
 			status: 'active',
 			text: 'commit changes',
 			imgs: []
 		},
 		{
+			_id: 'd48',
 			status: 'done',
 			text: 'save users'
 		}
