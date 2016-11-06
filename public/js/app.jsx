@@ -1,7 +1,25 @@
 'use strict';
 
-let tasks;
+let SearchInput = React.createClass({
+	handleSearch: function(event) {
+		let searchQuery = event.target.value;
+		let displayedTasks = tasks.filter((el) => {
+			let searchValue = el.text;
+			return searchValue.indexOf(searchQuery) !== -1;
+		});
+		console.log(displayedTasks);
+		linkTaskList.setState({
+			displayedTasks: displayedTasks
+		});
+	},
+	render: function() {
+		return <div className="searchInput input-field z-depth-1">
+			<input placeholder="Search task" id="input-search" type="text" onChange={this.handleSearch} />
+		</div>
+	}
+});
 
+let tasks;
 let Task = React.createClass({
 	render: function() {
 		return <div className="card task clearfix">
@@ -13,8 +31,10 @@ let Task = React.createClass({
 	}
 });
 
+let linkTaskList;
 let TaskList = React.createClass({
 	getInitialState: function() {
+		linkTaskList = this;
 		return {
 			displayedTasks: []
 		}
@@ -31,22 +51,8 @@ let TaskList = React.createClass({
 			}
 		});
 	},
-	handleSearch: function(event) {
-		let searchQuery = event.target.value;
-		let displayedTasks = tasks.filter((el) => {
-			let searchValue = el.text;
-			return searchValue.indexOf(searchQuery) !== -1;
-		});
-		console.log(displayedTasks);
-		this.setState({
-			displayedTasks: displayedTasks
-		});
-	},
 	render: function() {
 		return <div>
-			<div className="searchInput input-field z-depth-1">
-				<input placeholder="Search task" id="input-search" type="text" onChange={this.handleSearch} />
-			</div>
 			{
 				this.state.displayedTasks.map((el) => {
 					let checked = '';
@@ -58,6 +64,10 @@ let TaskList = React.createClass({
 	}
 });
 
+ReactDOM.render(
+	<SearchInput/>,
+	document.getElementById('inputs')
+);
 ReactDOM.render(
 	<TaskList/>,
 	document.getElementById('tasks')
