@@ -1,43 +1,9 @@
 'use strict';
 
-let data = {
-	tasks: [
-		{
-			_id: 'd46',
-			status: 'done',
-			text: 'make request',
-			imgs: [
-				{
-					title: "Event Loop Model",
-					imgUrl: "uploads/img/img-1.png"
-				},
-				{
-					title: "React Arhitecture",
-					imgUrl: "uploads/img/img-2.png"
-				},
-				{
-					title: "Yosemite bg",
-					imgUrl: "uploads/img/img-3.png"
-				}
-			]
-		},
-		{
-			_id: 'd47',
-			status: 'active',
-			text: 'commit changes',
-			imgs: []
-		},
-		{
-			_id: 'd48',
-			status: 'done',
-			text: 'save users'
-		}
-	]
-}
-let tasks = data.tasks;
+let tasks;
 
 let Task = React.createClass({
-	render() {
+	render: function() {
 		return <div className="card task clearfix">
 			<div className="card-content left clearfix">
 				<input type="checkbox" id={'taskCheckbox-' + this.props._id} className="filled-in" defaultChecked={this.props.checked}/>
@@ -48,24 +14,35 @@ let Task = React.createClass({
 });
 
 let TaskList = React.createClass({
-	getInitialState: () => {
+	getInitialState: function() {
 		return {
-			displayedTasks: tasks
+			displayedTasks: []
 		}
 	},
-
-	handleSearch: () => {
+	componentWillMount: function() {
+		$.ajax({
+			url: '/tasks',
+			method: 'GET',
+			success: (response) => {
+				tasks = response;
+				this.setState({
+					displayedTasks: tasks
+				});
+			}
+		});
+	},
+	handleSearch: function(event) {
 		let searchQuery = event.target.value;
 		let displayedTasks = tasks.filter((el) => {
 			let searchValue = el.text;
 			return searchValue.indexOf(searchQuery) !== -1;
 		});
+		console.log(displayedTasks);
 		this.setState({
 			displayedTasks: displayedTasks
 		});
 	},
-
-	render() {
+	render: function() {
 		return <div>
 			<div className="searchInput input-field z-depth-1">
 				<input placeholder="Search task" id="input-search" type="text" onChange={this.handleSearch} />

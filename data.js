@@ -4,7 +4,7 @@ let data = {
 	tasks: [
 		{
 			_id: 'd46',
-			status: 'done',
+			status: 'active',
 			text: 'make request',
 			imgs: [
 				{
@@ -31,6 +31,21 @@ let data = {
 			_id: 'd48',
 			status: 'done',
 			text: 'save users'
+		},
+		{
+			_id: 'd49',
+			status: 'active',
+			text: 'get and extract values from a json server'
+		},
+		{
+			_id: 'd50',
+			status: 'done',
+			text: 'Separate the code in multiple files'
+		},
+		{
+			_id: 'd51',
+			status: 'done',
+			text: 'Updating example easier to use.'
 		}
 	]
 }
