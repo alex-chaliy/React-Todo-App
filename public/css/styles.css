@@ -26,9 +26,6 @@ body {
 .tabs {
 	margin-top: 10px;
 }
-.tabs-content {
-	margin-top: 20px;
-}
 
 /* header */
 	.header {
@@ -110,7 +107,9 @@ body {
 	}
 /* end inputs */
 
-/* task */
+/* tasks */
+	.tasks {margin-top: 20px;}
+
 	.task label {
 		color: #333;
 		font-size: 16px;
@@ -133,4 +132,4 @@ body {
 		width: 100%;
 		height: auto;
 	}
-/* end task */
+/* end tasks */

@@ -2,25 +2,63 @@
 
 let tabsData = [
 	{
+		_id: 'tab1',
 		text: 'All',
-		searchStatus: ''
+		searchKey: '',
+		isActive: true
 	},
 	{
+		_id: 'tab2',
 		text: 'Active',
-		searchStatus: 'active'
+		searchKey: 'active',
+		isActive: false
 	},
 	{
+		_id: 'tab3',
 		text: 'Done',
-		searchStatus: 'done'
+		searchKey: 'done',
+		isActive: false
 	},
 ];
 let Tab = React.createClass({
+	filterTasks: function() {
+		let searchQuery = 'done';
+		let displayedTasks = tasks.filter((el) => {
+			let searchValue = el.status;
+			return searchValue.indexOf(searchQuery) !== -1;
+		});
+		console.log(displayedTasks);
+		linkTaskList.setState({
+			displayedTasks: displayedTasks
+		});
+	},
 	render: function() {
-		return <li class="tab col s4">
-			<a class="active" onClick={this.filterTasks(this.props.searchStatus)}>
-				{this.props.text}
-			</a>
-		</li>
+		return <div>
+			<li className="tab col s4" onClick={this.filterTasks}>
+				<a className={this.props.tabClassName}>
+					{this.props.text}
+				</a>
+			</li>
+		</div>
+	}
+});
+let Tabs = React.createClass({
+	componentDidMount: function() {
+		$('ul.tabs').tabs();
+	},
+	render: function() {
+		return <ul className="tabs">
+			{
+				tabsData.map((el) => {
+					let tabClassName;
+					if(el.isActive === true) tabClassName = 'active';
+					return <Tab key={el._id} 
+								text={el.text}
+								tabClassName={tabClassName}
+								/>;
+				})
+			}
+		</ul>
 	}
 });
 
@@ -97,6 +135,12 @@ let TaskList = React.createClass({
 		</div>;
 	}
 });
+
+
+ReactDOM.render(
+	<Tabs/>,
+	document.getElementById('tabs')
+);
 
 ReactDOM.render(
 	<div>
