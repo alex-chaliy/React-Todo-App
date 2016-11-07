@@ -1,5 +1,29 @@
 'use strict';
 
+let tabsData = [
+	{
+		text: 'All',
+		searchStatus: ''
+	},
+	{
+		text: 'Active',
+		searchStatus: 'active'
+	},
+	{
+		text: 'Done',
+		searchStatus: 'done'
+	},
+];
+let Tab = React.createClass({
+	render: function() {
+		return <li class="tab col s4">
+			<a class="active" onClick={this.filterTasks(this.props.searchStatus)}>
+				{this.props.text}
+			</a>
+		</li>
+	}
+});
+
 let TaskInput = React.createClass({
 	render: function() {
 		return <div className="taskInput input-field z-depth-1">
