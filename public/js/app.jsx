@@ -1,5 +1,15 @@
 'use strict';
 
+let TaskInput = React.createClass({
+	render: function() {
+		return <div className="taskInput input-field z-depth-1">
+			<input placeholder="New task" id="input-task" type="text" />
+			<button className="taskInput-addBtn btn waves-effect waves-light">
+				<i className="material-icons">add</i>
+			</button>
+		</div>
+	}
+});
 let SearchInput = React.createClass({
 	handleSearch: function(event) {
 		let searchQuery = event.target.value;
@@ -39,7 +49,7 @@ let TaskList = React.createClass({
 			displayedTasks: []
 		}
 	},
-	componentWillMount: function() {
+	componentDidMount: function() {
 		$.ajax({
 			url: '/tasks',
 			method: 'GET',
@@ -65,7 +75,10 @@ let TaskList = React.createClass({
 });
 
 ReactDOM.render(
-	<SearchInput/>,
+	<div>
+		<SearchInput/>
+		<TaskInput/>
+	</div>,
 	document.getElementById('inputs')
 );
 ReactDOM.render(
