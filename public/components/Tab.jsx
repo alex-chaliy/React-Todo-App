@@ -13,7 +13,7 @@ let Tab = React.createClass({
 	},
 	render: function() {
 		return <div>
-			<li className="tab col s4" onClick={this.filterTasks.bind(this, 'done')}>
+			<li className="tab col s4" onClick={this.filterTasks.bind(this, this.props.searchKey)}>
 				<a className={this.props.tabClassName}>
 					{this.props.text}
 				</a>

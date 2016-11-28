@@ -7,9 +7,11 @@ let Tabs = React.createClass({
 			{
 				tabsData.map((el) => {
 					let tabClassName;
-					if(el.isActive === true) tabClassName = 'active';
+					if(el.isActive === true)
+						tabClassName = 'active';
 					return <Tab key={el._id} 
 								text={el.text}
+								searchKey={el.searchKey}
 								tabClassName={tabClassName} />;
 				})
 			}
